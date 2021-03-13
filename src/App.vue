@@ -1,17 +1,16 @@
 <template>
   <v-app>
-
-    <v-app-bar
-        color="green"
-        height="50px"
+    <v-app-bar app
+               color="green"
+               height="50px"
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>{{componentTitle}}</v-toolbar-title>
+      <v-toolbar-title>Home</v-toolbar-title>
     </v-app-bar>
 
-    <v-navigation-drawer
-        temporary
-        v-model="drawer"
+    <v-navigation-drawer app
+                         temporary
+                         v-model="drawer"
     >
       <v-list>
         <v-list-item class="px-2">
@@ -36,37 +35,33 @@
           nav
           dense
       >
-        <v-list-item link>
+        <v-list-item link to="/">
+          <v-list-item-icon>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+        <v-list-item link to="/albums">
           <v-list-item-icon>
             <v-icon>mdi-folder</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Albums</v-list-item-title>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item link to="/about">
           <v-list-item-icon>
             <v-icon>mdi-account-multiple</v-icon>
           </v-list-item-icon>
-          <v-list-item-title>Shared with me</v-list-item-title>
+          <v-list-item-title>About</v-list-item-title>
         </v-list-item>
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-star</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Starred</v-list-item-title>
-        </v-list-item>
+
       </v-list>
     </v-navigation-drawer>
 
-
-
     <v-main>
-
       <v-container fluid>
-
         <router-view></router-view>
       </v-container>
     </v-main>
-
   </v-app>
 
 </template>
@@ -76,12 +71,8 @@
 export default {
   name: 'App',
 
-  components: {
-  },
-
   data: () => ({
     drawer: false,
-    componentTitle: 'App'
   }),
-};
+}
 </script>
